@@ -1,0 +1,88 @@
+/* Basic reset and background styling */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Georgia', serif; /* A simple, classic, and cute font */
+    background: #ffe6f2; /* A lovely, light pink background */
+    color: #4b0082; /* Deep purple text for contrast */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    overflow: hidden; /* Hide anything that goes off the screen */
+    text-align: center;
+}
+
+/* Styling for the main content box */
+.container {
+    background-color: rgba(255, 255, 255, 0.9); /* Slightly transparent white box */
+    padding: 40px;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+    max-width: 80%;
+    z-index: 10; /* Make sure the message is above the balloons */
+}
+
+/* Styling for the main heading */
+.main-title {
+    font-size: 3em;
+    color: #ff69b4; /* Hot pink for a lovely, vibrant look */
+    margin-bottom: 0.5em;
+    animation: pulse 1.5s infinite alternate; /* A cute, gentle animation */
+}
+
+/* Styling for the body message */
+.message-body {
+    font-size: 1.5em;
+    line-height: 1.6;
+    margin-bottom: 1.5em;
+}
+
+/* Keyframe animation for the title pulse */
+@keyframes pulse {
+    from {
+        transform: scale(1);
+    }
+    to {
+        transform: scale(1.05);
+    }
+}
+
+/* --- Balloon Styling (for the JavaScript to use) --- */
+.balloon {
+    position: absolute;
+    width: 60px; /* Size of the balloon */
+    height: 80px;
+    border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
+    z-index: 1;
+    /* Cute, soft shadow for a 3D effect */
+    box-shadow: inset -5px -5px 5px rgba(0, 0, 0, 0.1); 
+    /* Animation will be added by JavaScript */
+}
+
+/* The small knot/tie at the bottom of the balloon */
+.balloon::after {
+    content: '';
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    background: inherit; /* Same color as the balloon */
+    bottom: -5px;
+    left: 50%;
+    transform: translateX(-50%) rotate(45deg);
+    border-radius: 3px;
+    z-index: 2;
+}
+
+/* The string of the balloon */
+.balloon::before {
+    content: '';
+    position: absolute;
+    width: 1px;
+    height: 150px; /* Length of the string */
+    background: rgba(0, 0, 0, 0.2); /* Light grey string */
+    bottom: -155px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 1;
+}
